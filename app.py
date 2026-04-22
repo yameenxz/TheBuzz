@@ -84,7 +84,7 @@ body {
         <source src="https://res.cloudinary.com/dnne6eiae/video/upload/q_auto,f_auto/roy123_yizolb.mp4" type="video/mp4">
     </video>
 
-    <a href="https://the-buzz-rpll.vercel.app" target="_blank" class="btn">
+    <a href="https://the-buzz-btdh.vercel.app/" target="_blank" class="btn">
         Register Now
     </a>
 </div>
