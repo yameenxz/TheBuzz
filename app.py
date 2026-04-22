@@ -1,84 +1,57 @@
-import streamlit as st
-import streamlit.components.v1 as components
-
-st.set_page_config(page_title="THE BUZZ", layout="wide")
-
-BG_IMAGE_URL = "https://res.cloudinary.com/dnne6eiae/image/upload/v1776867977/roy69_b8ljl4.jpg"
-
-st.markdown(f"""
-<style>
-.stApp {{
-    background: url("{BG_IMAGE_URL}") no-repeat center center fixed;
-    background-size: cover;
-}}
-
-.block-container {{
-    padding-top: 0rem !important;
-    padding-bottom: 0rem !important;
-}}
-</style>
-""", unsafe_allow_html=True)
-
-VIDEO_URL = "https://res.cloudinary.com/dnne6eiae/video/upload/q_auto,f_auto/roy123_yizolb.mp4"
-
-HEADER_URL = "https://res.cloudinary.com/dnne6eiae/image/upload/q_auto,f_auto/1000055489-Photoroom_cymvnr.png"
-
-html_code = f"""
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 
-body {{
+body {
     margin: 0;
-}}
+    background: url("https://res.cloudinary.com/dnne6eiae/image/upload/v1776867977/roy69_b8ljl4.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: sans-serif;
+}
 
 /* HEADER */
-.header {{
-    width: 100%;
+.header {
     text-align: center;
-    padding: 40px 0 6px 0;
-}}
+    margin: 0;
+    padding: 0;
+}
 
-.header img {{
-    width: 220px;
-}}
+/* 🔥 BIGGER LOGO */
+.header img {
+    width: 260px;   /* 👈 increased from 180px */
+    display: block;
+    margin: 0 auto;
+}
 
 /* VIDEO */
-.hero {{
+.video-section {
     position: relative;
-    height: calc(100vh - 85px);
-    margin-top: -40px;
-    width: 100%;
+    width: 92%;
+    height: 80vh;
+    margin: -40px auto 0 auto;
     overflow: hidden;
-}}
+    border-radius: 12px;
+}
 
-.hero video {{
-    position: absolute;
+.video-section video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}}
+}
 
-.hero::after {{
+.video-section::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(0,0,0,0.25);
-}}
+    z-index: 1;
+}
 
-.overlay {{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}}
-
-.btn {{
+/* BUTTON */
+.btn {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -87,15 +60,15 @@ body {{
     font-size: 20px;
     background: white;
     color: black;
-    border: none;
     border-radius: 10px;
-    cursor: pointer;
-}}
+    text-decoration: none;
+    z-index: 2;
+}
 
-.btn:hover {{
+.btn:hover {
     transform: translate(-50%, -50%) scale(1.05);
     background: #f0f0f0;
-}}
+}
 
 </style>
 </head>
@@ -103,24 +76,18 @@ body {{
 <body>
 
 <div class="header">
-    <img src="{HEADER_URL}">
+    <img src="https://res.cloudinary.com/dnne6eiae/image/upload/q_auto,f_auto/1000055489-Photoroom_cymvnr.png">
 </div>
 
-<div class="hero">
+<div class="video-section">
     <video autoplay muted loop playsinline>
-        <source src="{VIDEO_URL}" type="video/mp4">
+        <source src="https://res.cloudinary.com/dnne6eiae/video/upload/q_auto,f_auto/roy123_yizolb.mp4" type="video/mp4">
     </video>
 
-    <div class="overlay">
-
-        <button class="btn" onclick="alert('Register coming soon')">
-            Register Now
-        </button>
-    </div>
+    <a href="https://the-buzz-rpll.vercel.app" target="_blank" class="btn">
+        Register Now
+    </a>
 </div>
 
 </body>
 </html>
-"""
-
-components.html(html_code, height=1000)
